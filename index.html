@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ffdbac, #bbedd9);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+
+        .countdown-container {
+            position:relative;
+             /* Adjust the distance from the bottom */
+            right: -13%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: rgba(249, 7, 200, 0.941);
+            background-color: rgba(248, 227, 156, 0.9);
+            padding:0%;
+            border-radius: 10px;
+            box-shadow: 10px 0 10px rgba(0, 0, 0, 0.3);
+            margin-left: 125px;
+            margin-top: -250px;
+            min-width: 220px;
+            max-height: 380px;
+        }
+
+        .countdown-container img {
+            width: 230px; /* Make the image fill the width of the container */
+            height: 380px; /* Maintain the aspect ratio */
+            border-radius: 5px; /* Optional: Add border-radius to the image */
+       
+            
+        }
+
+        #countdown {
+            font-size:x-large;
+            margin-top: 20px;
+            color: rgba(61, 6, 243, 0.97);
+        }
+    </style>
+</head>
+<body>
+
+<div class="countdown-container">
+    
+    <img src="https://github.com/patefkae/dhwanit.github.io/blob/main/WhatsApp%20Image%202024-03-17%20at%2021.02.04_b6956de7.jpg?raw=true" alt="Your Image Description">
+    <h1>Birthday countdown</h1>
+    <div id="countdown"></div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Set the date we're counting down to
+        const countDownDate = new Date("march 18, 2024 00:00:00").getTime();
+
+        // Update the countdown every 1 second
+        const x = setInterval(function () {
+            // Get the current date and time
+            const now = new Date().getTime();
+
+            // Calculate the remaining time
+            const distance = countDownDate - now;
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown
+            document.getElementById("countdown").innerHTML = days + "d :" + hours + "h :" + minutes + "m :" + seconds + "s " ;
+            
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "HAPPY BIRTHDAY DHWANIT";
+            }
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>
